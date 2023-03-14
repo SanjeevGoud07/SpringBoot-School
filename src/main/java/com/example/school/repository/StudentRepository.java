@@ -13,4 +13,7 @@ public interface StudentRepository{
     Student updateStudent(int studentId,Student student);
 
     void deleteStudent(int studentId);
+
+    String addBulkList(ArrayList<Student> listed);
+    
 }

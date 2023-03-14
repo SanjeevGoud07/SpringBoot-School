@@ -77,4 +77,16 @@ public class StudentH2Service implements StudentRepository{
     public void deleteStudent(int studentId){
         db.update("delete from student where studentId=?",studentId);
     }
+
+    @Override
+
+    public String addBulkList(ArrayList<Student> listed){
+        int S=0;
+        for(Student E:listed){
+                db.update("insert into student(studentName,gender,standard) values(?,?,?)",E.getStudentName(),E.getGender(),E.getStandard());
+            S+=1;
+        }
+        String Res="Successfully added "+S+" students";
+        return Res;
+    }
 }
